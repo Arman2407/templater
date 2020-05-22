@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
 
+  has_many :document_templates, inverse_of: :owner, foreign_key: :owner_id
+
   def to_s
     email
   end
