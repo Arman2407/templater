@@ -17,6 +17,9 @@ gem "webpacker", "~> 4.0"
 ### View helpers
 gem "country_select"
 gem "name_of_person"
+gem "meta-tags"
+gem "simple_form"
+gem "active_link_to"
 
 ### Auth
 gem "devise"
