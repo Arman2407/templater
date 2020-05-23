@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :document_templates, inverse_of: :owner, foreign_key: :owner_id
   has_many :businesses, inverse_of: :owner, foreign_key: :owner_id
+  has_many :counterparties, inverse_of: :owner, foreign_key: :owner_id
 
   def to_s
     email

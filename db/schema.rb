@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_090159) do
+ActiveRecord::Schema.define(version: 2020_05_23_134053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -55,6 +55,23 @@ ActiveRecord::Schema.define(version: 2020_05_23_090159) do
     t.index ["owner_id"], name: "index_businesses_on_owner_id"
   end
 
+  create_table "counterparties", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "company_full_name", default: "", null: false
+    t.string "company_short_name", default: "", null: false
+    t.string "signatory_person", default: "", null: false
+    t.string "signatory_basis", default: "", null: false
+    t.string "inn", default: "", null: false
+    t.string "kpp", default: "", null: false
+    t.string "ogrn", default: "", null: false
+    t.text "legal_address", default: "", null: false
+    t.text "real_address", default: "", null: false
+    t.text "post_address", default: "", null: false
+    t.uuid "owner_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_counterparties_on_owner_id"
+  end
+
   create_table "document_templates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.uuid "owner_id"
@@ -91,5 +108,6 @@ ActiveRecord::Schema.define(version: 2020_05_23_090159) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "businesses", "users", column: "owner_id"
+  add_foreign_key "counterparties", "users", column: "owner_id"
   add_foreign_key "document_templates", "users", column: "owner_id"
 end

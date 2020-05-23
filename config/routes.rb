@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :counterparties
   resources :businesses
   resources :document_templates
   devise_for :users

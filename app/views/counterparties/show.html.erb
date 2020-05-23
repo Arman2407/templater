@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company full name:</strong>
+  <%= @counterparty.company_full_name %>
+</p>
+
+<p>
+  <strong>Company short name:</strong>
+  <%= @counterparty.company_short_name %>
+</p>
+
+<p>
+  <strong>Signatory person:</strong>
+  <%= @counterparty.signatory_person %>
+</p>
+
+<p>
+  <strong>Signatory basis:</strong>
+  <%= @counterparty.signatory_basis %>
+</p>
+
+<p>
+  <strong>Inn:</strong>
+  <%= @counterparty.inn %>
+</p>
+
+<p>
+  <strong>Kpp:</strong>
+  <%= @counterparty.kpp %>
+</p>
+
+<p>
+  <strong>Ogrn:</strong>
+  <%= @counterparty.ogrn %>
+</p>
+
+<p>
+  <strong>Legal address:</strong>
+  <%= @counterparty.legal_address %>
+</p>
+
+<p>
+  <strong>Real address:</strong>
+  <%= @counterparty.real_address %>
+</p>
+
+<p>
+  <strong>Post address:</strong>
+  <%= @counterparty.post_address %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @counterparty.owner_id %>
+</p>
+
+<%= link_to 'Edit', edit_counterparty_path(@counterparty) %> |
+<%= link_to 'Back', counterparties_path %>

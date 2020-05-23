@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Counterparties</h1>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Company full name</th>
+      <th>Inn</th>
+      <th>Kpp</th>
+      <th>Ogrn</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @counterparties.each do |counterparty| %>
+      <tr>
+        <td><%= counterparty.company_full_name %></td>
+        <td><%= counterparty.inn %></td>
+        <td><%= counterparty.kpp %></td>
+        <td><%= counterparty.ogrn %></td>
+        <td><%= link_to 'Show', counterparty %></td>
+        <td><%= link_to 'Edit', edit_counterparty_path(counterparty) %></td>
+        <td><%= link_to 'Destroy', counterparty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Counterparty', new_counterparty_path, class: 'btn btn-primary' %>
