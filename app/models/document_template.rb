@@ -4,4 +4,8 @@ class DocumentTemplate < ApplicationRecord
   validates :name, presence: true
   validates :doc, presence: true
   has_one_attached :doc
+
+  def to_s
+    name
+  end
 end

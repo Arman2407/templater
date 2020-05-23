@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Template:</strong>
+  <%= @document.template.name %>
+</p>
+
+<p>
+  <strong>Business:</strong>
+  <%= @document.business %>
+</p>
+
+<p>
+  <strong>Counterparty:</strong>
+  <%= @document.counterparty %>
+</p>
+
+<p>
+  <strong>Signing date:</strong>
+  <%= @document.signing_date %>
+</p>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>
