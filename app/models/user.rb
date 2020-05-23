@@ -5,6 +5,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable
 
   has_many :document_templates, inverse_of: :owner, foreign_key: :owner_id
+  has_many :businesses, inverse_of: :owner, foreign_key: :owner_id
 
   def to_s
     email

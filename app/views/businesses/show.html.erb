@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company full name:</strong>
+  <%= @business.company_full_name %>
+</p>
+
+<p>
+  <strong>Company short name:</strong>
+  <%= @business.company_short_name %>
+</p>
+
+<p>
+  <strong>Signatory person:</strong>
+  <%= @business.signatory_person %>
+</p>
+
+<p>
+  <strong>Signatory basis:</strong>
+  <%= @business.signatory_basis %>
+</p>
+
+<p>
+  <strong>Inn:</strong>
+  <%= @business.inn %>
+</p>
+
+<p>
+  <strong>Kpp:</strong>
+  <%= @business.kpp %>
+</p>
+
+<p>
+  <strong>Ogrn:</strong>
+  <%= @business.ogrn %>
+</p>
+
+<p>
+  <strong>Legal address:</strong>
+  <%= @business.legal_address %>
+</p>
+
+<p>
+  <strong>Real address:</strong>
+  <%= @business.real_address %>
+</p>
+
+<p>
+  <strong>Post address:</strong>
+  <%= @business.post_address %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @business.owner_id %>
+</p>
+
+<%= link_to 'Edit', edit_business_path(@business) %> |
+<%= link_to 'Back', businesses_path %>

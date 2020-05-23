@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_164205) do
+ActiveRecord::Schema.define(version: 2020_05_23_090159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -36,6 +36,23 @@ ActiveRecord::Schema.define(version: 2020_05_22_164205) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "businesses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "company_full_name", default: "", null: false
+    t.string "company_short_name", default: "", null: false
+    t.string "signatory_person", default: "", null: false
+    t.string "signatory_basis", default: "", null: false
+    t.string "inn", default: "", null: false
+    t.string "kpp", default: "", null: false
+    t.string "ogrn", default: "", null: false
+    t.text "legal_address", default: "", null: false
+    t.text "real_address", default: "", null: false
+    t.text "post_address", default: "", null: false
+    t.uuid "owner_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_businesses_on_owner_id"
   end
 
   create_table "document_templates", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -73,5 +90,6 @@ ActiveRecord::Schema.define(version: 2020_05_22_164205) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "businesses", "users", column: "owner_id"
   add_foreign_key "document_templates", "users", column: "owner_id"
 end
