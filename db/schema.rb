@@ -42,13 +42,17 @@ ActiveRecord::Schema.define(version: 2020_05_23_191317) do
     t.string "company_full_name", default: "", null: false
     t.string "company_short_name", default: "", null: false
     t.string "signatory_person", default: "", null: false
+    t.string "signatory_person_genitive", default: "", null: false
     t.string "signatory_basis", default: "", null: false
+    t.string "signatory_basis_genitive", default: "", null: false
     t.string "inn", default: "", null: false
     t.string "kpp", default: "", null: false
     t.string "ogrn", default: "", null: false
     t.text "legal_address", default: "", null: false
     t.text "real_address", default: "", null: false
     t.text "post_address", default: "", null: false
+    t.string "phone", default: "", null: false
+    t.string "email", default: "", null: false
     t.uuid "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -59,13 +63,17 @@ ActiveRecord::Schema.define(version: 2020_05_23_191317) do
     t.string "company_full_name", default: "", null: false
     t.string "company_short_name", default: "", null: false
     t.string "signatory_person", default: "", null: false
+    t.string "signatory_person_genitive", default: "", null: false
     t.string "signatory_basis", default: "", null: false
+    t.string "signatory_basis_genitive", default: "", null: false
     t.string "inn", default: "", null: false
     t.string "kpp", default: "", null: false
     t.string "ogrn", default: "", null: false
     t.text "legal_address", default: "", null: false
     t.text "real_address", default: "", null: false
     t.text "post_address", default: "", null: false
+    t.string "phone", default: "", null: false
+    t.string "email", default: "", null: false
     t.uuid "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -84,7 +92,10 @@ ActiveRecord::Schema.define(version: 2020_05_23_191317) do
     t.uuid "template_id", null: false
     t.uuid "business_id", null: false
     t.uuid "counterparty_id", null: false
+    t.string "contract_num", default: "", null: false
     t.date "signing_date"
+    t.integer "amount_num", default: 0, null: false
+    t.string "amount_text", default: "", null: false
     t.uuid "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
