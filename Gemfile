@@ -35,6 +35,7 @@ gem "devise-i18n"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "config"
 gem "image_processing", "~> 1.2"
+gem "sablon"
 
 group :development, :test do
   gem "brakeman"
@@ -61,7 +62,7 @@ group :test do
 end
 
 group :development do
-  gem "awesome_print"
+  gem "amazing_print"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "lol_dba"
   gem "pry-byebug"

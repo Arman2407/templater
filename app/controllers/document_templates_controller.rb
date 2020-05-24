@@ -71,6 +71,6 @@ class DocumentTemplatesController < CustomerController
 
   # Only allow a list of trusted parameters through.
   def document_template_params
-    params.require(:document_template).permit(:name, :doc)
+    params.require(:document_template).permit(:name, :doc_template)
   end
 end

@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Template:</strong>
   <%= @document.template.name %>
@@ -18,6 +16,11 @@
 <p>
   <strong>Signing date:</strong>
   <%= @document.signing_date %>
+</p>
+
+<p>
+  <strong>Download: </strong>
+  <%= link_to 'document', @document.doc %>
 </p>
 
 <%= link_to 'Edit', edit_document_path(@document) %> |

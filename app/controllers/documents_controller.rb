@@ -29,6 +29,8 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save
+        create_from_template(@document)
+
         format.html { redirect_to @document, notice: "Document was successfully created." }
         format.json { render :show, status: :created, location: @document }
       else
@@ -43,6 +45,8 @@ class DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
+        create_from_template(@document)
+
         format.html { redirect_to @document, notice: "Document was successfully updated." }
         format.json { render :show, status: :ok, location: @document }
       else
@@ -67,6 +71,10 @@ class DocumentsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_document
     @document = Document.find(params[:id])
+  end
+
+  def create_from_template(doc)
+    CreateDocumentFromTemplateJob.perform_now(doc)
   end
 
   # Only allow a list of trusted parameters through.
