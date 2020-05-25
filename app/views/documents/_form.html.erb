@@ -4,9 +4,9 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :template %>
-    <%= f.association :business %>
-    <%= f.association :counterparty %>
+    <%= f.association :template, collection: current_user.document_templates %>
+    <%= f.association :business, collection: current_user.businesses %>
+    <%= f.association :counterparty, collection: current_user.counterparties %>
     <%= f.input :contract_num %>
     <%= f.input :signing_date %>
     <%= f.input :amount_num %>
