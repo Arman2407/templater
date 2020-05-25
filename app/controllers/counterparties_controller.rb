@@ -67,6 +67,7 @@ class CounterpartiesController < CustomerController
   # Use callbacks to share common setup or constraints between actions.
   def set_counterparty
     @counterparty = Counterparty.find(params[:id])
+    @bank_accounts = @counterparty.bank_accounts
   end
 
   # Only allow a list of trusted parameters through.

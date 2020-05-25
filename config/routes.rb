@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   concern :accountable do
-    resources :bank_accounts
+    resources :bank_accounts, except: :index
   end
 
   resources :counterparties, concerns: :accountable

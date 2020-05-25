@@ -60,7 +60,7 @@ class BankAccountsController < ApplicationController
   def destroy
     @bank_account.destroy
     respond_to do |format|
-      format.html { redirect_to polymorphic_path([@accountable, BankAccount]), notice: "Bank account was successfully destroyed." }
+      format.html { redirect_to polymorphic_path([@accountable]), notice: "Bank account was successfully destroyed." }
       format.json { head :no_content }
     end
   end
