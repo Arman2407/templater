@@ -1,5 +1,5 @@
 class DocumentTemplate < ApplicationRecord
-  belongs_to :owner, class_name: "User"
+  include Ownerable
 
   validates :name, presence: true
   validates :doc_template, presence: true

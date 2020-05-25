@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  resources :documents
-  resources :counterparties
-  resources :businesses
+  concern :accountable do
+    resources :bank_accounts
+  end
+
+  resources :counterparties, concerns: :accountable
+  resources :businesses, concerns: :accountable
   resources :document_templates
+  resources :documents
+
   devise_for :users
 
   authenticated :user do

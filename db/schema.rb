@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_191317) do
+ActiveRecord::Schema.define(version: 2020_05_24_181555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(version: 2020_05_23_191317) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "bank_accounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "accountable_type", null: false
+    t.uuid "accountable_id", null: false
+    t.boolean "active", default: false
+    t.string "bank_name", default: "", null: false
+    t.string "bank_bik", default: "", null: false
+    t.string "kor_account_num", default: "", null: false
+    t.string "account_num", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["accountable_type", "accountable_id"], name: "index_bank_accounts_on_accountable_type_and_accountable_id"
   end
 
   create_table "businesses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

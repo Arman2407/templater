@@ -1,5 +1,7 @@
 class Business < ApplicationRecord
-  belongs_to :owner, class_name: "User"
+  include Accountable
+  include Ownerable
+
   has_many :documents, dependent: :destroy
 
   validates :company_full_name, presence: true

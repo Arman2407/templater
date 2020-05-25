@@ -1,8 +1,9 @@
 class Document < ApplicationRecord
+  include Ownerable
+
   belongs_to :template, class_name: "DocumentTemplate"
   belongs_to :business
   belongs_to :counterparty
-  belongs_to :owner, class_name: "User", foreign_key: :owner_id, inverse_of: :documents
 
   has_one_attached :doc
 
@@ -28,6 +29,10 @@ class Document < ApplicationRecord
       b_post_address: business.post_address,
       b_phone: business.phone,
       b_email: business.email,
+      b_bank_name: business.bank_accounts.active_one.bank_name,
+      b_bank_bik: business.bank_accounts.active_one.bank_bik,
+      b_bank_kor_account_num: business.bank_accounts.active_one.kor_account_num,
+      b_bank_account_num: business.bank_accounts.active_one.account_num,
 
       # Counterparty
       c_company_full_name: counterparty.company_full_name,
@@ -43,7 +48,11 @@ class Document < ApplicationRecord
       c_real_address: counterparty.real_address,
       c_post_address: counterparty.post_address,
       c_phone: counterparty.phone,
-      c_email: counterparty.email
+      c_email: counterparty.email,
+      c_bank_name: counterparty.bank_accounts.active_one.bank_name,
+      c_bank_bik: counterparty.bank_accounts.active_one.bank_bik,
+      c_bank_kor_account_num: counterparty.bank_accounts.active_one.kor_account_num,
+      c_bank_account_num: counterparty.bank_accounts.active_one.account_num
     }
   end
 end

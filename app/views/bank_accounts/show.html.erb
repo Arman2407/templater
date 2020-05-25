@@ -1,0 +1,32 @@
+<p>
+  <strong>Accountable:</strong>
+  <%= @bank_account.accountable %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @bank_account.active %>
+</p>
+
+<p>
+  <strong>Bank name:</strong>
+  <%= @bank_account.bank_name %>
+</p>
+
+<p>
+  <strong>Bank bik:</strong>
+  <%= @bank_account.bank_bik %>
+</p>
+
+<p>
+  <strong>Kor account:</strong>
+  <%= @bank_account.kor_account_num %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @bank_account.account_num %>
+</p>
+
+<%= link_to 'Edit', edit_polymorphic_path([@accountable, @bank_account]) %> |
+<%= link_to 'Back', polymorphic_path([@accountable, BankAccount]) %>
