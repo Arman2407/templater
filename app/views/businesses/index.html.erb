@@ -3,7 +3,7 @@
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
-      <th>Company full name</th>
+      <th>Company name</th>
       <th>Inn</th>
       <th>Kpp</th>
       <th>Ogrn</th>
@@ -14,7 +14,7 @@
   <tbody>
     <% @businesses.each do |business| %>
       <tr>
-        <td><%= business.company_full_name %></td>
+        <td><%= business.company_short_name %></td>
         <td><%= business.inn %></td>
         <td><%= business.kpp %></td>
         <td><%= business.ogrn %></td>

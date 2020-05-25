@@ -6,6 +6,7 @@
       <th>Template</th>
       <th>Business</th>
       <th>Counterparty</th>
+      <th>Document number</th>
       <th>Signing date</th>
       <th colspan="4"></th>
     </tr>
@@ -15,8 +16,9 @@
     <% @documents.each do |document| %>
       <tr>
         <td><%= document.template %></td>
-        <td><%= document.business %></td>
-        <td><%= document.counterparty %></td>
+        <td><%= document.business.company_short_name %></td>
+        <td><%= document.counterparty.company_short_name %></td>
+        <td><%= document.contract_num %></td>
         <td><%= document.signing_date %></td>
         <td><%= link_to 'Download', document %></td>
         <td><%= link_to 'Show', document %></td>
