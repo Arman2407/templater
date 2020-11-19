@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :counterparties, concerns: :accountable
   resources :businesses, concerns: :accountable
   resources :document_templates
-  resources :documents
+  resources :documents, except: :new do
+    get 'new/:type', to: 'documents#new', as: :new, on: :collection
+  end
 
   devise_for :users
 

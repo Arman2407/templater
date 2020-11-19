@@ -14,7 +14,8 @@ class DocumentsController < ApplicationController
 
   # GET /documents/new
   def new
-    @document = Document.new
+    @document = Contract.new
+    @type = params[:type]
   end
 
   # GET /documents/1/edit
@@ -79,6 +80,6 @@ class DocumentsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def document_params
-    params.require(:document).permit(:template_id, :business_id, :counterparty_id, :signing_date, :contract_num, :amount_num, :amount_text)
+    params.require(:document).permit(:type, :document_name, :customer, :executor)
   end
 end

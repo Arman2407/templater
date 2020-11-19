@@ -1,0 +1,17 @@
+<p>
+  <strong>Document name:</strong>
+  <%= @act.document_name %>
+</p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @act.serial_number %>
+</p>
+
+<p>
+  <strong>Adress:</strong>
+  <%= @act.adress %>
+</p>
+
+<%= link_to 'Edit', edit_act_path(@act) %> |
+<%= link_to 'Back', acts_path %>

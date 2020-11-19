@@ -1,0 +1,17 @@
+<p>
+  <strong>Document name:</strong>
+  <%= @contract.document_name %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @contract.customer %>
+</p>
+
+<p>
+  <strong>Executor:</strong>
+  <%= @contract.executor %>
+</p>
+
+<%= link_to 'Edit', edit_contract_path(@contract) %> |
+<%= link_to 'Back', contracts_path %>
